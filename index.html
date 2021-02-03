@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" integrity="sha512-EZLkOqwILORob+p0BXZc+Vm3RgJBOe1Iq/0fiI7r/wJgzOFZMlsqTa29UEl6v6U6gsV4uIpsNZoV32YZqrCRCQ==" crossorigin="anonymous" />
+    <title>Document</title>
+    <style>
+        td, th{
+            text-align: center;
+            justify-content: center;
+        }
+
+        .success, .error{
+            color: white;
+            margin: 5px 0px 15px 0px;
+            padding: 5px;
+        }
+        .success{background-color: green;}
+        .error{background-color: red;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h3 style="text-align: center;"><u>Shopping Cart Project</u></h3><br>
+    <h4>Items List</h4>
+
+    <table class="u-full-width" id="item_table" style="border: 1px solid black;">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price(in Taka)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Egg</td>
+                <td>10</td>
+                <td>
+                    <input  type="submit" id="egg_input" value="Add to cart">
+                </td>
+            </tr>
+            <tr>
+                <td>Apple</td>
+                <td>5</td>
+                <td>
+                    <input  type="submit" id="apple_input" value="Add to cart">
+                </td>
+            </tr>
+            <tr>
+                <td>Meat</td>
+                <td>150</td>
+                <td>
+                    <input  type="submit" id="meat_input" value="Add to cart">
+                </td>
+            </tr>
+            <tr>
+                <td>Fish</td>
+                <td>200</td>
+                <td>
+                    <input  type="submit" id="fish_input" value="Add to cart">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h4>Cart</h4>
+    <table class="u-full-width" style="border: 1px solid black;">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Remove items</th>
+            </tr>
+        </thead>
+        <tbody id="itemlist"></tbody>
+    </table>
+</div>
+    <script src="shopping.js"></script>
+</body>
+</html>
