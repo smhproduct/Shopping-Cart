@@ -103,11 +103,17 @@ class Store {
 
     static removeitemfromlocalstorage(name) {
         let items = Store.getItems();
-        items.forEach((item, index) => {
+        for (let i = items.length - 1; i >= 0; i--) {
+            if (items[i].name === name) {
+
+                items.splice(i, 1);
+            }
+        }
+        /*items.forEach((item, index) => {
             if (item.name === name) {
                 items.splice(index, 1);
             }
-        })
+        })*/
         localStorage.setItem('items', JSON.stringify(items));
     }
 }
@@ -118,16 +124,24 @@ document.addEventListener('DOMContentLoaded', Store.displayItems());
 //Defining Functions
 for (let i = 0; i < cart.length; i++) {
     let button = cart[i];
+    var flag = 1;
     let count = 0;
     var total = 0;
     button.addEventListener('click', function (e) {
         let product_name = e.target.parentElement.previousElementSibling.previousElementSibling.textContent;
         let product_price = e.target.parentElement.previousElementSibling.textContent;
+
+        if (flag == 0) {
+            total -= count * product_price;
+            count = 0;
+            flag = 1;
+
+        }
         count += 1;
         total += parseInt(product_price);
         console.log(total);
         //totalprice.innerHTML = total;
-        product_quantity = count;
+        let product_quantity = count;
         let item = new Item(product_name, product_price, product_quantity, total);
         UI.addItemList(item);
         let ui = new UI();
@@ -139,8 +153,10 @@ for (let i = 0; i < cart.length; i++) {
 }
 
 function removeitem(e) {
+
     let ui = new UI();
     ui.removefromcart(e.target);
+    flag = 0;
     e.preventDefault();
 
 }
